@@ -1,0 +1,204 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Lattice Fourier Transform Calculations
+\end_layout
+
+\begin_layout Section
+Single-layer triangular lattice (nearest and next-nearest)
+\end_layout
+
+\begin_layout Standard
+We consider a single layer triangular lattice defined by lattice vectors
+\begin_inset Formula 
+\begin{equation}
+\begin{alignedat}{1}\bm{a}_{1} & =a\left(1,0\right)\\
+\bm{a}_{2} & =a\left(-\frac{1}{2},\frac{\sqrt{3}}{2}\right).
+\end{alignedat}
+\label{eq:latvecs_tri}
+\end{equation}
+
+\end_inset
+
+The Hamiltonian for a single exchange interaction is given by
+\begin_inset Formula 
+\begin{equation}
+H=\sum_{\bm{r}_{j}}\sum_{\bm{\delta}}S_{\bm{r}_{j}}^{\alpha}J^{\alpha\beta}S_{\bm{r}_{j}+\bm{\delta}}^{\beta}.\label{eq:exchange_hamiltonian}
+\end{equation}
+
+\end_inset
+
+Now using the Fourier transform pair
+\begin_inset Formula 
+\begin{equation}
+\begin{alignedat}{1}S_{\bm{k}}^{\alpha} & =\frac{1}{\sqrt{N}}\sum_{\bm{r}_{j}}e^{i\bm{k}\cdot\bm{r}_{j}}S_{\bm{r}_{j}}^{\alpha}\\
+S_{\bm{r}_{j}}^{\alpha} & =\frac{1}{\sqrt{N}}\sum_{\bm{k}}e^{-i\bm{k}\cdot\bm{r}_{j}}S_{\bm{k}}^{\alpha},
+\end{alignedat}
+\label{eq:lat_ft_pair}
+\end{equation}
+
+\end_inset
+
+we find
+\begin_inset Formula 
+\begin{equation}
+H=\frac{1}{2}\sum_{\bm{k}}\sum_{\bm{\delta}}e^{-i\bm{k}\cdot\bm{\delta}}S_{\bm{k}}^{\alpha}J^{\alpha\beta}S_{\bm{k}}^{\beta}\label{eq:ft_exchange_hamiltonian}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\bm{\delta}$
+\end_inset
+
+ represent all nearest neighbors connected to a given site (where the 
+\begin_inset Formula $1/2$
+\end_inset
+
+ was added to compensate for double counting).
+ 
+\end_layout
+
+\begin_layout Subsection
+Nearest neighbors
+\end_layout
+
+\begin_layout Standard
+For the nearest neighbor interactions, 
+\begin_inset Formula 
+\[
+\begin{alignedat}{1} & \pm\bm{a}_{1}\\
+ & \pm\bm{a}_{2}\\
+ & \pm\left(\bm{a}_{1}+\bm{a}_{2}\right)
+\end{alignedat}
+\]
+
+\end_inset
+
+we find
+\begin_inset Formula 
+\[
+\mathcal{J}_{{\rm NN}}^{\alpha\beta}\left(\bm{k}\right)=2J^{\alpha\beta}\left[\cos\left(ak_{x}\right)+\cos\left(\frac{a}{2}k_{x}-\frac{\sqrt{3}a}{2}k_{y}\right)+\cos\left(\frac{a}{2}k_{x}+\frac{\sqrt{3}a}{2}k_{y}\right)\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Next-nearest neighbors
+\end_layout
+
+\begin_layout Standard
+The next-nearest neighbor are defined by the vectors
+\begin_inset Formula 
+\[
+\begin{alignedat}{1} & \pm\left(2\bm{a}_{1}+\bm{a}_{2}\right)\\
+ & \pm\left(\bm{a}_{1}+2\bm{a}_{2}\right)\\
+ & \pm\left(-2\bm{a}_{1}+\bm{a}_{2}\right)
+\end{alignedat}
+\]
+
+\end_inset
+
+yielding
+\begin_inset Formula 
+\[
+\mathcal{J}_{{\rm NNN}}^{\alpha\beta}\left(\bm{k}\right)=2J^{\alpha\beta}\left[\cos\left(ak_{x}\right)+\cos\left(\frac{a}{2}k_{x}-\frac{\sqrt{3}a}{2}k_{y}\right)+\cos\left(\frac{a}{2}k_{x}+\frac{\sqrt{3}a}{2}k_{y}\right)\right].
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Honeycomb
+\end_layout
+
+\begin_layout Standard
+We consider nearest neighbors on the honeycomb lattice
+\end_layout
+
+\begin_layout Section
+Triangular bi-layer
+\end_layout
+
+\end_body
+\end_document
